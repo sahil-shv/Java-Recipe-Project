@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeShare - Add Recipe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">
+                            <i class="bi bi-plus-circle"></i> Share a New Recipe
+                        </h3>
+                    </div>
+                    <div class="card-body p-5">
+                        <div id="alert-container"></div>
+                        
+                        <form id="recipe-form" enctype="multipart/form-data">
+                            <div class="mb-4">
+                                <label for="title" class="form-label fw-bold">
+                                    Recipe Title <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" class="form-control form-control-lg" id="title" name="title" 
+                                       placeholder="e.g., Classic Chocolate Chip Cookies" required autofocus>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="category" class="form-label fw-bold">Category</label>
+                                <select class="form-select" id="category" name="category">
+                                    <option value="">Select a category...</option>
+                                    <option value="Breakfast">Breakfast</option>
+                                    <option value="Lunch">Lunch</option>
+                                    <option value="Dinner">Dinner</option>
+                                    <option value="Dessert">Dessert</option>
+                                    <option value="Snack">Snack</option>
+                                    <option value="Appetizer">Appetizer</option>
+                                    <option value="Beverage">Beverage</option>
+                                    <option value="Vegetarian">Vegetarian</option>
+                                    <option value="Vegan">Vegan</option>
+                                    <option value="Gluten-Free">Gluten-Free</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="ingredients" class="form-label fw-bold">
+                                    Ingredients <span class="text-danger">*</span>
+                                </label>
+                                <textarea class="form-control" id="ingredients" name="ingredients" rows="6" 
+                                          placeholder="List all ingredients, one per line or separated by commas" required></textarea>
+                                <small class="form-text text-muted">Enter ingredients one per line or separated by commas.</small>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="steps" class="form-label fw-bold">
+                                    Instructions <span class="text-danger">*</span>
+                                </label>
+                                <textarea class="form-control" id="steps" name="steps" rows="8" 
+                                          placeholder="Provide step-by-step instructions for preparing this recipe..." required></textarea>
+                                <small class="form-text text-muted">Provide clear, step-by-step instructions.</small>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="imageFile" class="form-label fw-bold">Recipe Image</label>
+                                <input type="file" class="form-control" id="imageFile" name="imageFile" accept="image/*">
+                                <small class="form-text text-muted">Upload an image (JPG, PNG, GIF). Max 5MB. Image will be automatically compressed.</small>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">OR</label>
+                                <label for="image" class="form-label fw-bold">Image URL</label>
+                                <input type="url" class="form-control" id="image" name="image" 
+                                       placeholder="https://example.com/image.jpg">
+                                <small class="form-text text-muted">If you prefer to use an image URL instead of uploading.</small>
+                            </div>
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <a href="recipes.html" class="btn btn-outline-secondary">
+                                    <i class="bi bi-x-circle"></i> Cancel
+                                </a>
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-check-circle"></i> Post Recipe
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="alert alert-info mt-4">
+                    <i class="bi bi-info-circle"></i> <strong>Tips for great recipes:</strong>
+                    <ul class="mb-0 mt-2">
+                        <li>Use clear, descriptive titles</li>
+                        <li>List all ingredients with specific measurements</li>
+                        <li>Write step-by-step instructions that are easy to follow</li>
+                        <li>Add a high-quality image to make your recipe more appealing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/addRecipe.js"></script>
+</body>
+</html>
+

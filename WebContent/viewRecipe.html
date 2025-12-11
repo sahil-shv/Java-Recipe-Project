@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeShare - Recipe Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <main class="container my-5">
+        <div id="recipe-container">
+            <div class="text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rating Modal -->
+    <div class="modal fade" id="ratingModal" tabindex="-1" aria-labelledby="ratingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ratingModalLabel">Rate this Recipe</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="rating-form">
+                    <div class="modal-body">
+                        <input type="hidden" name="recipeId" id="ratingRecipeId">
+                        <div class="text-center mb-3">
+                            <p class="lead">How would you rate this recipe?</p>
+                            <div class="rating-stars mb-3" style="font-size: 2rem; cursor: pointer;">
+                                <i class="bi bi-star" data-rating="1" style="color: #ccc; margin: 0 5px;"></i>
+                                <i class="bi bi-star" data-rating="2" style="color: #ccc; margin: 0 5px;"></i>
+                                <i class="bi bi-star" data-rating="3" style="color: #ccc; margin: 0 5px;"></i>
+                                <i class="bi bi-star" data-rating="4" style="color: #ccc; margin: 0 5px;"></i>
+                                <i class="bi bi-star" data-rating="5" style="color: #ccc; margin: 0 5px;"></i>
+                            </div>
+                            <input type="hidden" name="rating" id="ratingValue" required>
+                            <p id="ratingText" class="text-muted"></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-star"></i> Submit Rating
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/viewRecipe.js"></script>
+</body>
+</html>
+
