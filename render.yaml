@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: recipeshare
+    env: java
+    buildCommand: mvn clean package -DskipTests
+    startCommand: mvn -DskipTests -Djetty.http.host=0.0.0.0 -Djetty.http.port=$PORT org.eclipse.jetty:jetty-maven-plugin:12.0.13:run-war
+    envVars:
+      - key: JAVA_VERSION
+        value: 17
+      - key: DB_HOST
+        fromDatabase:
+          name: recipeshare-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: recipeshare-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: recipeshare-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: recipeshare-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: recipeshare-db
+          property: password
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+
+databases:
+  - name: recipeshare-db
+    databaseName: recipeshare
+    user: recipeshare_user
+    plan: free
+
