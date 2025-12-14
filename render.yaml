@@ -1,12 +1,9 @@
 services:
   - type: web
     name: recipeshare
-    env: java
-    buildCommand: mvn clean package -DskipTests
-    startCommand: mvn -DskipTests -Djetty.http.host=0.0.0.0 -Djetty.http.port=$PORT org.eclipse.jetty:jetty-maven-plugin:12.0.13:run-war
+    env: docker
+    dockerfilePath: ./Dockerfile
     envVars:
-      - key: JAVA_VERSION
-        value: 17
       - key: DB_HOST
         fromDatabase:
           name: recipeshare-db
@@ -37,4 +34,3 @@ databases:
     databaseName: recipeshare
     user: recipeshare_user
     plan: free
-
